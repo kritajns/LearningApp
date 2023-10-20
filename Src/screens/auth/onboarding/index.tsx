@@ -13,7 +13,10 @@ const OnBoarding: React.FC<onboardingProps> = ({navigation}: any) => {
       {/* <Text>This is OnBoarding screen.</Text> */}
       <Image source={Logo} style={styles.logo} />
       <View style={styles.btnContainer}>
-        <Button title="Sign Up" onPress={() => console.log('pressed')} />
+        <Button
+          title="Sign Up"
+          onPress={() => navigation?.navigate('register')}
+        />
         <Button
           title="I have an account"
           onPress={() => {
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    width: '95%',
+    width: '100%',
   },
   logo: {
     width: 300,

@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Login, Onboarding, Profile, Register} from '../screens';
+import {ForgetPwd, Login, Onboarding, Profile, Register} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -12,6 +12,7 @@ const Route: React.FC = () => {
         <Stack.Screen name="onboarding" component={Onboarding} />
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="register" component={Register} />
+        <Stack.Screen name="forget-password" component={ForgetPwd} />
         <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
