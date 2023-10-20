@@ -17,7 +17,7 @@ interface TextBoxProps {
   error?: any;
 }
 
-const TextBox: React.FC<TextBoxProps> = ({
+const TextField: React.FC<TextBoxProps> = ({
   value,
   label,
   touched,
@@ -32,7 +32,7 @@ const TextBox: React.FC<TextBoxProps> = ({
   customStyle,
 }) => {
   return (
-    <View>
+    <View style={styles.mainContainer}>
       <TextInput
         style={[styles.inputContainer, styles.textBox, customStyle]}
         placeholder={placeHolder}
@@ -55,9 +55,15 @@ const TextBox: React.FC<TextBoxProps> = ({
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    borderRadius: 50,
+  },
   inputContainer: {
-    borderRadius: 20,
+    // flex: 1,
+    // width: '100%',
+    // borderRadius: 50,
     marginVertical: 10,
+    backgroundColor: '#fff',
   },
   textBox: {},
   errorText: {
@@ -67,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(TextBox);
+export default React.memo(TextField);

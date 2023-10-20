@@ -17,10 +17,11 @@ const Button: React.FC<ButtonProps> = ({title, onPress, customStyle}) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 10,
+    borderRadius: 15,
     marginVertical: 10,
-    paddingVertical: 10,
+    paddingVertical: 15,
     backgroundColor: 'blue',
+    height: 50,
   },
   text: {
     fontSize: 18,
