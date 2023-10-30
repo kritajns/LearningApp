@@ -12,6 +12,17 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({navigation}: any) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+
+  const handleLogin = () => {
+    if (email !== '' && password !== '') {
+      console.log('login successful');
+      // navigation?.navigate('Dashboard');
+      navigation?.navigate('TabRoutes');
+    } else {
+      console.log('login unsuccessful');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image source={WelcomeUser} style={styles.image} />
@@ -25,6 +36,7 @@ const Login: React.FC<LoginProps> = ({navigation}: any) => {
           label="Email"
           handleChange={(txt: any) => setEmail(txt)}
           leftIconName="email-outline"
+          error={'Email is required'}
         />
 
         <Textfield
@@ -33,6 +45,8 @@ const Login: React.FC<LoginProps> = ({navigation}: any) => {
           label="Password"
           handleChange={(txt: any) => setPassword(txt)}
           leftIconName="lock-outline"
+          error={'Password is required'}
+          secureTextEntry={true}
         />
       </View>
       <View style={styles.textContainer}>
@@ -52,7 +66,7 @@ const Login: React.FC<LoginProps> = ({navigation}: any) => {
           // justifyContent: 'center',
           alignSelf: 'center',
         }}>
-        <Button title="Login" onPress={() => console.log('Log in')} />
+        <Button title="Login" onPress={handleLogin} />
       </View>
 
       <View

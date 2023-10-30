@@ -15,6 +15,7 @@ interface TextBoxProps {
   handleChange: (val: string) => void;
   placeHolder?: string;
   error?: any;
+  secureTextEntry?: boolean;
 }
 
 const TextField: React.FC<TextBoxProps> = ({
@@ -30,6 +31,7 @@ const TextField: React.FC<TextBoxProps> = ({
   placeHolder,
   error,
   customStyle,
+  secureTextEntry,
 }) => {
   return (
     <View style={styles.mainContainer}>
@@ -48,6 +50,7 @@ const TextField: React.FC<TextBoxProps> = ({
         value={value}
         onBlur={onBlur}
         editable={editable}
+        secureTextEntry={secureTextEntry}
       />
       {touched && error && <Text style={styles.errorText}>{error}</Text>}
     </View>
