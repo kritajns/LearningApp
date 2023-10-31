@@ -6,3 +6,5 @@ export {default as ForgetPwd} from './auth/forget-password';
 export {default as Dashboard} from './dashboard';
 export {default as Learning} from './recent-learning';
 export {default as Bookmark} from './bookmark';
+export {default as Category} from './category';
+export {default as Mentors} from './mentors';
