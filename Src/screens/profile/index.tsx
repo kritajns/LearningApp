@@ -21,7 +21,9 @@ const Profile: React.FC<ProfileProps> = ({navigation}: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.iconContainer}>
-        <Icon1 name="arrow-left" size={30} />
+        <TouchableOpacity onPress={() => navigation?.goBack()}>
+          <Icon1 name="arrow-left" size={30} />
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation?.navigate('login')}>
           <Icon1 name="logout" size={30} style={{color: 'red'}} />
         </TouchableOpacity>
