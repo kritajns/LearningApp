@@ -35,3 +35,60 @@ export const LearningData = [
     status: '',
   },
 ];
+
+export const CoursesData = [
+  {
+    id: 1,
+    course: 'Basic of UX Laws and methods of research',
+    author: 'Joe Brown',
+    fee: 'Free',
+    rating: 5,
+  },
+  {
+    id: 2,
+    course: 'How to develop the best interest in security software?',
+    author: 'Alex Chris',
+    fee: '$16',
+    rating: 4,
+  },
+  {
+    id: 3,
+    course: 'JavaScript Basics and Fundamentals',
+    author: 'Newton Jaris',
+    fee: '$20',
+    rating: 4,
+  },
+];
+
+export const MentorData = [
+  {
+    id: 1,
+    name: 'Mr. Prashant Kharel',
+    job: '3D Design & Graphics Design',
+  },
+  {
+    id: 2,
+    name: 'Mr. Manish Bhattarai',
+    job: 'UI/UX Designer & Frontend Developer',
+  },
+  {
+    id: 3,
+    name: 'Mr. Jeevan Dahal',
+    job: '2D Artist & App Developer',
+  },
+  {
+    id: 4,
+    name: 'Mrs. Soniya Bhujel',
+    job: 'Fashion Designer',
+  },
+  {
+    id: 5,
+    name: 'Mr. John Doe',
+    job: 'Cyber Security Personnel',
+  },
+  {
+    id: 6,
+    name: 'Miss Rituu Singh',
+    job: 'Architect Designer',
+  },
+];

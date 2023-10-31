@@ -10,6 +10,8 @@ import {
   Register,
 } from '../screens';
 import TabRoutes from './TabRoutes';
+import CategoryScreen from '../screens/category';
+import MentorScreen from '../screens/mentors';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +26,8 @@ const Route: React.FC = () => {
         <Stack.Screen name="Profile" component={Profile} />
         {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
         <Stack.Screen name="TabRoutes" component={TabRoutes} />
+        <Stack.Screen name="Category" component={CategoryScreen} />
+        <Stack.Screen name="Mentor" component={MentorScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
