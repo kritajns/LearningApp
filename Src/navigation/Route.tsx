@@ -2,16 +2,19 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
+  Course,
   Dashboard,
   ForgetPwd,
   Login,
   Onboarding,
+  Premium,
   Profile,
   Register,
 } from '../screens';
 import TabRoutes from './TabRoutes';
 import CategoryScreen from '../screens/category';
 import MentorScreen from '../screens/mentors';
+import Payment from '../screens/premium/container/Payment';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +31,9 @@ const Route: React.FC = () => {
         <Stack.Screen name="TabRoutes" component={TabRoutes} />
         <Stack.Screen name="Category" component={CategoryScreen} />
         <Stack.Screen name="Mentor" component={MentorScreen} />
+        <Stack.Screen name="Premium" component={Premium} />
+        <Stack.Screen name="Payment" component={Payment} />
+        <Stack.Screen name="Course" component={Course} />
       </Stack.Navigator>
     </NavigationContainer>
   );
