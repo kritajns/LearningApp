@@ -5,3 +5,6 @@ export {default as VerifiedUser} from './verified.png';
 export {default as sampleUser} from './user-profile.png';
 export {default as Champion} from './champion.jpeg';
 export {default as SelfLearning} from './learning2.jpeg';
+export {default as Programming} from './program1.jpeg';
+export {default as Web} from './web2.jpeg';
+export {default as ComputerScience} from './comp3.webp';
