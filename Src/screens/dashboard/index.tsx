@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import {CoursesData} from '../../DummyData/DummyData';
 import CourseCard from './container/CourseCard';
-import {NewUser} from '../../assets/images';
+import {NewUser, Programming} from '../../assets/images';
 import {Image} from 'react-native';
 
 interface IProps {
@@ -47,6 +47,30 @@ const categoriesData = [
   },
 ];
 
+const RecentData = [
+  {
+    id: 1,
+    image: '',
+    course: 'UX Design',
+    title: 'Conduct UX research and test early concept',
+    completed: '5/10',
+  },
+  {
+    id: 2,
+    image: '',
+    course: 'Cyber security',
+    title: 'Tools of Trade: Linux and SQL',
+    completed: '4/10',
+  },
+  {
+    id: 3,
+    image: '',
+    course: 'Web Development',
+    title: 'Information Security Fundamentals',
+    completed: '6/10',
+  },
+];
+
 const Dashboard: React.FC<IProps> = ({navigation}) => {
   const [value, setValue] = React.useState('');
 
@@ -56,17 +80,18 @@ const Dashboard: React.FC<IProps> = ({navigation}) => {
       name={item.author}
       price={item.fee}
       rating={item.rating}
+      onPress={() => navigation?.navigate('Course')}
     />
   );
 
-  const mentorItem = ({item}: any) => {
-    const fullName = item.name;
-    const firstName = fullName.split(' ');
-    <View>
+  const mentorItem = ({item}: any) => (
+    // const fullName = item.name;
+    // const firstName = fullName.split(' ');
+    <View style={{marginHorizontal: 8}}>
       <Image source={NewUser} style={styles.mentorImage} />
-      <Text>{firstName}</Text>
-    </View>;
-  };
+      <Text>{item.name}</Text>
+    </View>
+  );
 
   return (
     // <SafeAreaView style={styles.mainContainer}>
@@ -77,9 +102,9 @@ const Dashboard: React.FC<IProps> = ({navigation}) => {
             <Text style={styles.mainText}>Hello,</Text>
             <Text style={{fontSize: 18, color: 'white'}}>Good Morning</Text>
           </View>
-          <View style={styles.iconContainer}>
+          <TouchableOpacity style={styles.iconContainer}>
             <Icon name="bell-outline" size={30} style={styles.bellIcon} />
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.searchContainer}>
           <Icon2
@@ -139,7 +164,7 @@ const Dashboard: React.FC<IProps> = ({navigation}) => {
         data={categoriesData}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}: any) => (
-          <TouchableOpacity style={{marginLeft: 5}}>
+          <TouchableOpacity style={{marginLeft: 5, marginBottom: 10}}>
             <Text style={styles.categoryText}>{item.name}</Text>
           </TouchableOpacity>
         )}
@@ -147,6 +172,43 @@ const Dashboard: React.FC<IProps> = ({navigation}) => {
       />
 
       <Text style={styles.recentText}>Recent Learning</Text>
+      <FlatList
+        data={RecentData}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item}) => (
+          <View style={styles.cardContainer}>
+            <Image source={Programming} style={styles.image} />
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: 'bold',
+                marginVertical: 8,
+                paddingHorizontal: 5,
+              }}>
+              {item.course}
+            </Text>
+            <Text
+              style={{fontSize: 14, fontWeight: '300', paddingHorizontal: 5}}>
+              {item.title}
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                paddingHorizontal: 5,
+                marginVertical: 10,
+              }}>
+              <View style={styles.horizontalLine} />
+              <Text style={{fontSize: 13, color: 'grey', marginLeft: 10}}>
+                {item.completed}
+              </Text>
+            </View>
+          </View>
+        )}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      />
 
       <View style={styles.category}>
         <Text style={styles.headerText}>Top Mentor</Text>
@@ -158,11 +220,13 @@ const Dashboard: React.FC<IProps> = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-      {/* <FlatList
+      <FlatList
         data={CoursesData}
         keyExtractor={(item, index) => index.toString()}
         renderItem={mentorItem}
-      /> */}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      />
     </ScrollView>
     // </SafeAreaView>
   );
@@ -269,8 +333,31 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginHorizontal: 15,
     alignSelf: 'flex-start',
+    marginBottom: 15,
   },
-  mentorImage: {},
+  mentorImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+  },
+  cardContainer: {
+    width: 220,
+    marginLeft: 15,
+    borderRadius: 10,
+    borderColor: 'grey',
+    borderWidth: 0.5,
+  },
+  image: {
+    width: '100%',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  horizontalLine: {
+    borderWidth: 2,
+    borderColor: 'royalblue',
+    borderRadius: 20,
+    width: '80%',
+  },
 });
 
 export default Dashboard;

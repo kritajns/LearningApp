@@ -177,7 +177,12 @@ const Profile: React.FC<ProfileProps> = ({navigation}: any) => {
       )}
 
       <View>
-        <TouchableOpacity style={styles.btnContainer}>
+        <TouchableOpacity
+          style={styles.btnContainer}
+          onPress={() => {
+            console.log('premium');
+            navigation?.navigate('Premium');
+          }}>
           <Text style={styles.bottomText}>Become Premium</Text>
         </TouchableOpacity>
       </View>

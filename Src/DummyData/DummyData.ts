@@ -1,3 +1,5 @@
+import {ComputerScience, Programming, Web} from '../assets/images';
+
 export const LearningData = [
   {
     id: 1,
@@ -90,5 +92,53 @@ export const MentorData = [
     id: 6,
     name: 'Miss Rituu Singh',
     job: 'Architect Designer',
+  },
+];
+
+export const BookmarkData = [
+  {
+    id: 1,
+    title: 'Graphic Design',
+    course: 'Graphic Design Advanced',
+    price: '799/-',
+    rating: 4.2,
+    hour: 7830,
+    imageUrl: Programming,
+  },
+  {
+    id: 2,
+    title: 'Graphic Design',
+    course: 'Advertisement Design',
+    price: '899/-',
+    rating: 4.0,
+    hour: 7810,
+    imageUrl: ComputerScience,
+  },
+  {
+    id: 3,
+    title: 'Web Development',
+    course: 'Web Developer Concept',
+    price: '899/-',
+    rating: 4.4,
+    hour: 4830,
+    imageUrl: Web,
+  },
+  {
+    id: 4,
+    title: 'Programming',
+    course: 'Concepts of Programming',
+    price: '1199/-',
+    rating: 4.8,
+    hour: 7830,
+    imageUrl: Programming,
+  },
+  {
+    id: 5,
+    title: 'SEO & Marketing',
+    course: 'Digital Marketing Career',
+    price: '799/-',
+    rating: 4.2,
+    hour: 7830,
+    imageUrl: Web,
   },
 ];

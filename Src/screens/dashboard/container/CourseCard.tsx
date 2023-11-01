@@ -2,9 +2,9 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {SelfLearning} from '../../../assets/images';
 
-const CourseCard = ({title, name, price, rating}: any) => {
+const CourseCard = ({title, name, price, rating, onPress}: any) => {
   return (
-    <TouchableOpacity style={styles.mainContainer}>
+    <TouchableOpacity style={styles.mainContainer} onPress={onPress}>
       <Image source={SelfLearning} style={styles.image} />
       <View style={{width: '100%'}}>
         <Text style={styles.title}>{title}</Text>
