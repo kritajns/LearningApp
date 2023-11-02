@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import Textfield from '../../../components/textfield';
 import {VerifiedUser} from '../../../assets/images';
 import Button from '../../../components/button';
+import HeaderLayout from '../../../components/headerLayout';
 
 interface IProps {
   navigation?: any;
@@ -12,9 +13,8 @@ const ForgetPassword: React.FC<IProps> = ({navigation}: any) => {
   const [email, setEmail] = React.useState('');
 
   return (
-    <View style={styles.container}>
+    <HeaderLayout title="Forgot Password" navigation={navigation}>
       <Image source={VerifiedUser} style={styles.image} />
-
       <View style={{marginVertical: 20, marginHorizontal: 30}}>
         <Text style={styles.longText}>
           We will send OTP to your email. Please check your email.
@@ -35,12 +35,17 @@ const ForgetPassword: React.FC<IProps> = ({navigation}: any) => {
         style={{
           width: '90%',
           marginVertical: 20,
-          // justifyContent: 'center',
           alignSelf: 'center',
         }}>
-        <Button title="Send" onPress={() => console.log('send-=-=-')} />
+        <Button
+          title="Send"
+          onPress={() => {
+            console.log('send-=-=-');
+            navigation?.navigate('verification');
+          }}
+        />
       </View>
-    </View>
+    </HeaderLayout>
   );
 };
 
@@ -54,6 +59,11 @@ const styles = StyleSheet.create({
   image: {
     alignSelf: 'center',
     marginVertical: 20,
+  },
+  arrowIcon: {
+    position: 'absolute',
+    marginLeft: 15,
+    marginTop: 10,
   },
   longText: {
     fontSize: 16,

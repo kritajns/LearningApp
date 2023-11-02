@@ -10,6 +10,7 @@ import {
 import Textfield from '../../../components/textfield';
 import {NewUser} from '../../../assets/images';
 import Button from '../../../components/button';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface RegisterProps {
   navigation?: any;
@@ -24,6 +25,12 @@ const Register: React.FC<RegisterProps> = ({navigation}: any) => {
   return (
     <ScrollView style={styles.container}>
       <Image source={NewUser} style={styles.image} />
+      <Icon
+        name="arrow-back"
+        size={30}
+        style={styles.arrowIcon}
+        onPress={() => navigation?.goBack()}
+      />
       <Text style={styles.wcText}>Sign Up</Text>
       <Text style={styles.text2}>Please create a new account</Text>
 
@@ -33,7 +40,7 @@ const Register: React.FC<RegisterProps> = ({navigation}: any) => {
           value={user}
           label="User Name"
           handleChange={(txt: any) => setUser(txt)}
-          leftIconName="username"
+          leftIconName="account"
         />
         <Textfield
           placeHolder="Please enter your email"
@@ -97,6 +104,11 @@ const styles = StyleSheet.create({
     // height: 100,
     alignSelf: 'center',
     marginBottom: 15,
+  },
+  arrowIcon: {
+    position: 'absolute',
+    marginLeft: 15,
+    marginTop: 10,
   },
   wcText: {
     fontSize: 24,

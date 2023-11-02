@@ -26,6 +26,12 @@ const Login: React.FC<LoginProps> = ({navigation}: any) => {
   return (
     <View style={styles.container}>
       <Image source={WelcomeUser} style={styles.image} />
+      <Icon
+        name="arrow-back"
+        size={30}
+        style={styles.arrowIcon}
+        onPress={() => navigation?.goBack()}
+      />
       <Text style={styles.wcText}>Welcome Back</Text>
       <Text style={styles.text2}>Please login to your account</Text>
 
@@ -139,6 +145,11 @@ const styles = StyleSheet.create({
     // height: 100,
     alignSelf: 'center',
     marginBottom: 15,
+  },
+  arrowIcon: {
+    position: 'absolute',
+    marginLeft: 15,
+    marginTop: 10,
   },
   wcText: {
     fontSize: 24,

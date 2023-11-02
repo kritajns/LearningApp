@@ -5,10 +5,14 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import {SelfLearning} from '../../assets/images';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {FlatList} from 'react-native-gesture-handler';
+import DetailCard from './container/DetailCard';
+import Button from '../../components/button';
 
 interface CProps {}
 
@@ -45,44 +49,68 @@ const DetailData = [
   },
 ];
 
-const Course: React.FC<CProps> = ({navigation}: any) => {
+const Course: React.FC<CProps> = ({navigation, route}: any) => {
+  const {data} = route.params;
+  console.log('testing-itesm-=-=-123', data);
+  const detailItem = ({item}: any) => (
+    <DetailCard
+      title={item.title}
+      chapter={item.chapter}
+      duration={item.duration}
+    />
+  );
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={SelfLearning} style={styles.headerImage} />
-      <TouchableOpacity
-        style={styles.icon}
-        onPress={() => navigation?.goBack()}>
-        <Icon name="arrow-left" size={30} />
-      </TouchableOpacity>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Image source={SelfLearning} style={styles.headerImage} />
+        <TouchableOpacity
+          style={styles.icon}
+          onPress={() => navigation?.goBack()}>
+          <Icon name="arrow-left" size={30} />
+        </TouchableOpacity>
 
-      <Text style={{fontSize: 15, fontWeight: 'bold', width: '80%'}}>
-        Basic of UX laws and methods of research
-      </Text>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginVertical: 10,
-        }}>
-        <Text style={{color: 'grey'}}>UI/UX Design</Text>
-        <Text style={{color: 'dodgerblue', textDecorationLine: 'underline'}}>
-          Free
+        <Text style={{fontSize: 15, fontWeight: 'bold', width: '80%'}}>
+          {data.course}
         </Text>
-      </View>
-      <Text style={{fontSize: 14, fontWeight: 'bold', marginBottom: 10}}>
-        Description
-      </Text>
-      <Text style={{color: 'grey', lineHeight: 24}}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. <Text style={{color: 'dodgerblue'}}>More</Text>
-      </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginVertical: 10,
+          }}>
+          <Text style={{color: 'grey'}}>UI/UX Design</Text>
+          <Text
+            style={{
+              color: 'dodgerblue',
+              textDecorationLine: data.fee === 'Free' ? 'underline' : null,
+            }}>
+            {data.fee}
+          </Text>
+        </View>
+        <Text style={{fontSize: 14, fontWeight: 'bold', marginBottom: 10}}>
+          Description
+        </Text>
+        <Text style={{color: 'grey', lineHeight: 24}}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.{' '}
+          <Text style={{color: 'dodgerblue'}}>More</Text>
+        </Text>
 
-      <View>
-        <Text>Courses</Text>
-      </View>
+        <View>
+          <Text style={{marginTop: 20, marginBottom: 15, fontWeight: 'bold'}}>
+            Courses
+          </Text>
+          <FlatList
+            data={DetailData}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={detailItem}
+          />
+          <Button title="Start Course" customStyle={{borderRadius: 8}} />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

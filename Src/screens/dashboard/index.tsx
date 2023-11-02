@@ -80,7 +80,10 @@ const Dashboard: React.FC<IProps> = ({navigation}) => {
       name={item.author}
       price={item.fee}
       rating={item.rating}
-      onPress={() => navigation?.navigate('Course')}
+      onPress={() => {
+        console.log('my-items-=-=', item);
+        navigation?.navigate('Course', {data: item});
+      }}
     />
   );
 
