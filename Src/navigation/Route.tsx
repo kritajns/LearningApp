@@ -10,6 +10,7 @@ import {
   Premium,
   Profile,
   Register,
+  Verification,
 } from '../screens';
 import TabRoutes from './TabRoutes';
 import CategoryScreen from '../screens/category';
@@ -26,6 +27,7 @@ const Route: React.FC = () => {
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="register" component={Register} />
         <Stack.Screen name="forget-password" component={ForgetPwd} />
+        <Stack.Screen name="verification" component={Verification} />
         <Stack.Screen name="Profile" component={Profile} />
         {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
         <Stack.Screen name="TabRoutes" component={TabRoutes} />

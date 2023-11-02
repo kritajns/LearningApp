@@ -10,3 +10,4 @@ export {default as Category} from './category';
 export {default as Mentors} from './mentors';
 export {default as Premium} from './premium';
 export {default as Course} from './course';
+export {default as Verification} from './auth/verification';
